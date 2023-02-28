@@ -1,4 +1,8 @@
 package com.postprac.repository;
 
-public class postRepository {
+import com.postprac.entity.Post;
+
+public interface PostRepository {
+
+    Post findById(Long id);
 }
