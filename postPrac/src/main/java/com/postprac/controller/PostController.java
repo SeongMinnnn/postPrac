@@ -1,6 +1,7 @@
 package com.postprac.controller;
 
 import com.postprac.dto.PostRequestDto;
+import com.postprac.dto.PostResponseDto;
 import com.postprac.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,22 +13,22 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("/post")
-    public ResponseDto<?> create(@RequestBody PostRequestDto requestDto){
+    public PostResponseDto create(@RequestBody PostRequestDto requestDto){
         return postService.create(requestDto);
     }
 
     @GetMapping("/post")
-    public ResponseDto<?> read(@PathVariable Long id){
+    public PostResponseDto read(@PathVariable Long id){
         return postService.read(id);
     }
 
     @PutMapping("/post")
-    public ResponseDto<?> update(@RequestBody PostRequestDto requestDto){
+    public PostResponseDto update(@RequestBody PostRequestDto requestDto){
         return postService.update(requestDto);
     }
 
     @GetMapping("/post")
-    public ResponseDto<?> delete(@PathVariable Long id){
+    public ResponseDto<String> delete(@PathVariable Long id){
         return postService.delete(id);
     }
 }
