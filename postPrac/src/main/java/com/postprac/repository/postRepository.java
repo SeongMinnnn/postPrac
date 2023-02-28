@@ -1,8 +1,10 @@
 package com.postprac.repository;
 
-import com.postprac.entity.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostRepository {
+import java.util.Optional;
 
-    Post findById(Long id);
+public interface PostRepository extends JpaRepository {
+
+    Optional findById(Long id);
 }
