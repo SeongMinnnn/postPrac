@@ -31,8 +31,8 @@ public class PostService {
         return new PostResponseDto(requestDto);
     }
 
-    public ResponseDto<String> delete(Long id) {
+    public String delete(Long id) {
         postRepository.delete(id);
-        return new ResponseDto(200,"삭제완료");
+        return "삭제완료";
     }
 }

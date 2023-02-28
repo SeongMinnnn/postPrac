@@ -28,7 +28,7 @@ public class PostController {
     }
 
     @GetMapping("/post")
-    public ResponseDto<String> delete(@PathVariable Long id){
+    public String delete(@PathVariable Long id){
         return postService.delete(id);
     }
 }
