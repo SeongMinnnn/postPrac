@@ -29,8 +29,8 @@ public class PostService {
         return PostResponseDto(requestDto);
     }
 
-    public ResponseDto<String> create(PostRequestDto requestDto) {
-        postRepository.delete(requestDto);
-        return ResponseDto(200,"삭제완료");
+    public ResponseDto<String> delete(Long id) {
+        postRepository.delete(id);
+        return new ResponseDto(200,"삭제완료");
     }
 }
