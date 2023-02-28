@@ -16,17 +16,19 @@ public class PostService {
     private final PostRepository postRepository;
     public PostResponseDto create(PostRequestDto requestDto) {
         postRepository.create(requestDto);
-        return PostResponseDto(requestDto);
+        return new PostResponseDto(requestDto);
     }
 
     public PostResponseDto read(Long id) {
-        Post post = postRepository.findById(id);
-        return PostResponseDto(post);
+        Post post = postRepository.findById(id).orElseThrow(
+                -> new IllegalArgumentException()
+        );
+        return new PostResponseDto(post);
     }
 
     public PostResponseDto update(PostRequestDto requestDto) {
         post.update(requestDto);
-        return PostResponseDto(requestDto);
+        return new PostResponseDto(requestDto);
     }
 
     public ResponseDto<String> delete(Long id) {
