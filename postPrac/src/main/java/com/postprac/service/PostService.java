@@ -15,7 +15,7 @@ public class PostService {
     private final Post post;
     private final PostRepository postRepository;
     public PostResponseDto create(PostRequestDto requestDto) {
-        postRepository.create(requestDto);
+        postRepository.save(requestDto);
         return new PostResponseDto(requestDto);
     }
 
